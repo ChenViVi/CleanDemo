@@ -24,11 +24,11 @@ import javax.inject.Inject
 class MoviesViewModel
 @Inject constructor(private val getMovies: GetMovies) : BaseViewModel() {
 
-    var movies: MutableLiveData<List<MovieView>> = MutableLiveData()
+    var movies: MutableLiveData<List<Movie>> = MutableLiveData()
 
     fun loadMovies() = getMovies(UseCase.None()) { it.either(::handleFailure, ::handleMovieList) }
 
     private fun handleMovieList(movies: List<Movie>) {
-        this.movies.value = movies.map { MovieView(it.id, it.poster) }
+        this.movies.value = movies.map { Movie(it.id, it.poster) }
     }
 }

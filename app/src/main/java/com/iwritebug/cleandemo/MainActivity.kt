@@ -12,7 +12,7 @@ import com.iwritebug.cleandemo.extension.failure
 import com.iwritebug.cleandemo.extension.observe
 import com.iwritebug.cleandemo.extension.viewModel
 import com.iwritebug.domain.Failure
-import com.iwritebug.viewmodel.MovieView
+import com.iwritebug.domain.Movie
 import com.iwritebug.viewmodel.MoviesViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         }).start()
     }
 
-    private fun renderMoviesList(movies: List<MovieView>?) {
+    private fun renderMoviesList(movies: List<Movie>?) {
         pb.visibility = View.GONE
         val imageAdapter = MovieAdapter(this, movies)
         recyclerView.adapter  = imageAdapter
